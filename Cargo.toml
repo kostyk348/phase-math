@@ -1,0 +1,10 @@
+[package]
+name = "phase-math"
+version = "0.1.0"
+edition = "2021"
+description = "Phase-math: reversible integer/fixed-point math for the PHASE paradigm. Bijections on Z/2^64 with analytic inverses (MulOdd via Newton, Add, Xor, RotL, ARX) + Q16.16 helpers with boundary domain validation."
+license = "MIT"
+
+[lib]
+name = "phase_math"
+path = "src/lib.rs"
