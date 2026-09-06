@@ -15,7 +15,7 @@ mod biject;
 mod q;
 
 pub use biject::*;
-pub use q::{Q, q_from_i32, q_mul, q_div, q_sqrt};
+pub use q::{q_div, q_from_i32, q_log2_i, q_mul, q_pow2, q_sqrt, Q};
 
 #[cfg(test)]
 mod tests {

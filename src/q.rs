@@ -53,6 +53,27 @@ fn isqrt(n: u64) -> u64 {
     x
 }
 
+/// 2^e в Q16.16 (точное для целых e в домене |e|<=31).
+pub fn q_pow2(e: i32) -> Option<Q> {
+    if !(-31..=31).contains(&e) {
+        return None;
+    }
+    if e >= 0 {
+        Some(1i64 << (16 + e))
+    } else {
+        Some((1i64 << 16) >> (-e))
+    }
+}
+
+/// floor(log2(x)) для x>0 в Q16.16 (домен: x строго положителен).
+pub fn q_log2_i(x: Q) -> Option<i32> {
+    if x <= 0 {
+        return None;
+    }
+    let v = x as u64;
+    Some((63 - v.leading_zeros()) as i32 - 16)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -72,5 +93,20 @@ mod tests {
     #[test]
     fn sqrt_domain() {
         assert!(q_sqrt(-1).is_none());
+    }
+
+    #[test]
+    fn pow2_and_log2() {
+        assert_eq!(q_pow2(0), Some(q_from_i32(1)));
+        assert_eq!(q_pow2(1), Some(q_from_i32(2)));
+        assert_eq!(q_pow2(-1), Some(32768));
+        assert_eq!(q_log2_i(q_from_i32(8)), Some(3));
+        assert_eq!(q_log2_i(q_from_i32(1)), Some(0));
+        assert!(q_log2_i(0).is_none());
+        assert!(q_pow2(100).is_none());
+        for e in -8..=8 {
+            let p = q_pow2(e).unwrap();
+            assert_eq!(q_log2_i(p), Some(e), "e={e}");
+        }
     }
 }
