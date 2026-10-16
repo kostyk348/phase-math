@@ -10,6 +10,8 @@ Float math is not invertible and stays **at the phase boundary**.
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![no deps](https://img.shields.io/badge/dependencies-0-green.svg)]()
+[![Release](https://img.shields.io/github/v/release/kostyk348/phase-math?sort=semver&color=blue)](https://github.com/kostyk348/phase-math/releases)
+[![Last commit](https://img.shields.io/github/last-commit/kostyk348/phase-math?branch=main)](https://github.com/kostyk348/phase-math/commits/main)
 
 ## API
 
