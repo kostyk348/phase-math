@@ -1,9 +1,13 @@
 [package]
 name = "phase-math"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
-description = "Phase-math: reversible integer/fixed-point math for the PHASE paradigm. Bijections on Z/2^64 with analytic inverses (MulOdd via Newton, Add, Xor, RotL, ARX) + Q16.16 helpers with boundary domain validation."
+description = "Phase-math: reversible math for the PHASE paradigm. Bijections on Z/2^64 with analytic inverses (MulOdd via Newton, Add, Xor, RotL, ARX), generic Fixed<FRAC> fixed-point with checked/saturating ops and documented error budgets, and outward-rounded interval arithmetic."
 license = "MIT"
+repository = "https://github.com/kostyk348/phase-math"
+readme = "README.md"
+keywords = ["fixed-point", "interval-arithmetic", "reversible-computing", "bijection", "arithmetic"]
+categories = ["mathematics"]
 
 [lib]
 name = "phase_math"
